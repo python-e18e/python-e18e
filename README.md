@@ -13,8 +13,26 @@ The order follows the first repositories created by the [JavaScript e18e organiz
 | 3 | [python-e18e](https://github.com/python-e18e/python-e18e) | Initiative, roadmap, and small docs site | This repository |
 | 4 | [.github](https://github.com/python-e18e/.github) | Organization profile | `../.github` |
 | 5 | [cli](https://github.com/python-e18e/cli) | Read-only project inventory | `../cli` |
+| 6 | [codemods](https://github.com/python-e18e/codemods) | Library and code pattern migrations | `../codemods` |
+| 7 | [mcp](https://github.com/python-e18e/mcp) | Agent advice and migration previews | `../mcp` |
 
 Each repository has its own Git history and release path. The [plan](PLAN.md) names later tools and the evidence needed before creating them.
+
+## Codemods and MCP
+
+The tools have independent repositories, Python packages, checks, and CI:
+
+- [codemods](https://github.com/python-e18e/codemods): explicit library import migrations and code pattern upgrades, with preview diffs and optional writes.
+- [MCP](https://github.com/python-e18e/mcp): dependency advice, import analysis, migration resources, and codemod previews over stdio, using the separate replacement catalog.
+
+The first recipes cover tomli → tomllib, appdirs → platformdirs, backports.zoneinfo → zoneinfo, and Ruff's lru_cache → cache upgrade. See the [migration rollout](docs/migrations.md) for Python floors, pilot checks, and the coordination queue. Source repositories are available; PyPI releases and volunteer pilots are separate milestones.
+
+```sh
+git clone https://github.com/python-e18e/codemods.git
+git clone https://github.com/python-e18e/mcp.git
+uv run --directory codemods --locked python checks/check_codemods.py
+uv run --directory mcp --locked python checks/check_mcp.py
+```
 
 ## Start here
 

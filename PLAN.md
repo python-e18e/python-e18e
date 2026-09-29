@@ -14,21 +14,27 @@ Follow e18e's sequence: organize useful work first, curate evidence second, expl
 
 This order mirrors [e18e's repository history](https://github.com/e18e): `ecosystem-issues`, `module-replacements`, `e18e`, `.github`, then `cli`. Each Python repository has its own Git history.
 
-## Next work, in this order when evidence supports it
+## Active next milestone: codemods and MCP
 
-6. **Validated migration recipes in `cli`.** Start with a limited `setup.cfg` metadata conversion, supported Flake8 settings, and uv's documented import commands. Each needs a real fixture, preview diff, idempotence check, and tests or built-artifact comparison. Keep unsupported settings in place.
-7. **framework-tracker.** Track upstream progress only after several projects have active, maintained issues. Avoid a dashboard without data.
-8. **setup-publish / action-dependency-diff.** Separate release and CI helpers only after recurring work shows a stable use case.
-9. **codemods / MCP / replacement viewer.** Create independent repos when recipes and consumers exist. Prefer contributing missing Ruff rules upstream: Ruff does not run third-party Flake8 plugins, so an ESLint-plugin-style clone would mislead users.
-10. **performance automation.** Benchmark and automate PRs only after measurements, maintainer consent, and rollback checks are routine.
+6. **Codemods.** Maintain the independent [codemods repository](https://github.com/python-e18e/codemods) with explicit, reusable library and syntax migrations. Start with tomli, appdirs, zoneinfo backports, and Ruff's cache upgrade rule. Require an explicit minimum Python, preview diffs, formatting preservation, unsupported-case handling, and idempotence checks. The [rollout](docs/migrations.md) names scopes, pilot checks, and release gates.
+7. **MCP.** Maintain the independent [MCP repository](https://github.com/python-e18e/mcp) that consumes the explicit replacement manifest and shares codemod previews with the runner. Expose dependency checks, source analysis, recipe listing, guidance resources, and a migration prompt using the official SDK. Source tools take text and return advice or previews; the server does not write target projects.
+
+Both tools have separate source repositories and CI. MCP pins an immutable codemods Git commit so it installs independently. Validate volunteer pilots before PyPI releases; publish codemods before MCP and replace the Git dependency with the released package then. Follow [e18e's ongoing projects](https://e18e.dev/learn/projects) while reusing existing Python tooling. Ruff does not run third-party Flake8 plugins, so contribute missing rules upstream instead of cloning the JavaScript plugin architecture.
+
+## Later work, when evidence supports it
+
+8. **CLI integration and configuration recipes.** Reuse the codemods package after pilots. For limited `setup.cfg` metadata conversion, supported Flake8 settings, and uv's documented import commands, require a real fixture, preview diff, idempotence check, and tests or built-artifact comparison. Keep unsupported settings in place.
+9. **framework-tracker / replacement viewer.** Add maintained views only after several projects have active issues and enough data to support them.
+10. **setup-publish / action-dependency-diff.** Separate release and CI helpers only after recurring work shows a stable use case.
+11. **performance automation.** Benchmark and automate PRs only after measurements, maintainer consent, and rollback checks are routine.
 
 ## Migration safety contract
 
 - The CLI is read-only today. A suggestion is a review prompt, not a compatibility guarantee.
 - Respect target projects' supported Python versions, dependency markers, build backends, platform data, and custom lint/type rules.
-- Before an edit is offered, compare wheel and sdist contents, lockfiles, tests, and diagnostics. Preview changes and never delete unsupported configuration silently.
+- Before applying a migration to an upstream project, run the relevant project checks. Packaging and configuration migrations also compare wheel and sdist contents, lockfiles, and diagnostics. Preview changes and never delete unsupported configuration silently.
 - Prefer uv, Ruff, and ty's documented behavior over reimplementing resolution, linting, or type checking.
 
 ## First validation milestone
 
-Try the CLI and catalog on a few volunteer repositories. Record false positives, unsupported configuration, and the most repeated migration. Use those examples to choose the first safe edit recipe.
+Try the CLI, catalog, and first codemod previews on volunteer repositories. Record false positives, unsupported configuration, and behavior differences in `ecosystem-issues`. Use pilot results to refine recipe scope before PyPI publication; see the [coordination queue](docs/migrations.md).

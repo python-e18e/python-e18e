@@ -52,6 +52,12 @@
       <h2 id="migrations">Start with your tooling</h2>
       <p>The <a href="https://github.com/python-e18e/cli">CLI</a> can inventory `setup.cfg`, Flake8, requirements files, and Pyright. Review the suggested path toward `pyproject.toml`, Ruff, uv, and ty before changing a project.</p>
     </section>
+    <section aria-labelledby="codemods">
+      <h2 id="codemods">Preview a code migration</h2>
+      <p>Our first <a href="https://github.com/python-e18e/codemods">codemods</a> cover tomli → tomllib, appdirs → platformdirs, backports.zoneinfo → zoneinfo, and unbounded lru_cache → cache. Choose a recipe and the project's minimum Python version, inspect its diff, and run the project's checks before applying it.</p>
+      <p>An <a href="https://github.com/python-e18e/mcp">MCP server</a> exposes dependency guidance, import analysis, migration resources, and the same source previews to coding agents. Both tools have independent source repositories; volunteer pilots will guide package releases.</p>
+      <p><a href="https://github.com/python-e18e/python-e18e/blob/main/docs/migrations.md">Read the migration rollout and local setup →</a></p>
+    </section>
   </main>
   <footer><p>Inspired by <a href="https://e18e.dev/">e18e</a>. Contributions belong with the projects and maintainers they help.</p></footer>
 </body>
