@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Python ecosystem modernization, one useful contribution at a time.">
+  <title>python-e18e — Better Python, together</title>
+  <style>
+    :root { color-scheme: light; font: 18px/1.6 system-ui, sans-serif; color: #17233d; background: #f6f8fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #194ea3; }
+    a:focus-visible { outline: 3px solid #f5a524; outline-offset: 3px; }
+    header, main, footer { max-width: 68rem; margin: auto; padding: 1.25rem; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    header a { font-weight: 700; }
+    nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .hero { padding: 4rem 0 2rem; }
+    h1 { max-width: 14ch; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.08; margin: 0; }
+    .lead { max-width: 52ch; font-size: 1.3rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+    article { background: white; border: 1px solid #dce3ee; border-radius: 0.75rem; padding: 1.3rem; }
+    h2 { margin-top: 3rem; }
+    h3 { margin-top: 0; }
+    footer { border-top: 1px solid #dce3ee; margin-top: 4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="https://github.com/python-e18e">python-e18e</a>
+    <nav aria-label="Main navigation">
+      <a href="https://github.com/python-e18e/ecosystem-issues">Opportunities</a>
+      <a href="https://github.com/python-e18e/module-replacements">Replacements</a>
+      <a href="https://github.com/python-e18e/cli">CLI</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <h1 id="title">Better Python, one project at a time.</h1>
+      <p class="lead">Find practical cleanups, share evidence for modern alternatives, and help maintainers make safe changes upstream.</p>
+      <p><a href="https://github.com/python-e18e/ecosystem-issues">Find an opportunity →</a></p>
+    </section>
+    <section aria-labelledby="work">
+      <h2 id="work">How we work</h2>
+      <div class="cards">
+        <article><h3>Cleanup</h3><p>Remove unnecessary dependencies and outdated project setup.</p></article>
+        <article><h3>Speedup</h3><p>Measure improvements to packages many projects use.</p></article>
+        <article><h3>Levelup</h3><p>Document and validate better tools and package alternatives.</p></article>
+      </div>
+    </section>
+    <section aria-labelledby="migrations">
+      <h2 id="migrations">Start with your tooling</h2>
+      <p>The <a href="https://github.com/python-e18e/cli">CLI</a> can inventory `setup.cfg`, Flake8, requirements files, and Pyright. Review the suggested path toward `pyproject.toml`, Ruff, uv, and ty before changing a project.</p>
+    </section>
+  </main>
+  <footer><p>Inspired by <a href="https://e18e.dev/">e18e</a>. Contributions belong with the projects and maintainers they help.</p></footer>
+</body>
+</html>
