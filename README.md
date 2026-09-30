@@ -15,6 +15,7 @@ The order follows the first repositories created by the [JavaScript e18e organiz
 | 5 | [cli](https://github.com/python-e18e/cli) | Read-only project inventory | `../cli` |
 | 6 | [codemods](https://github.com/python-e18e/codemods) | Library and code pattern migrations | `../codemods` |
 | 7 | [mcp](https://github.com/python-e18e/mcp) | Agent advice and migration previews | `../mcp` |
+| 8 | [skills](https://github.com/python-e18e/skills) | Python modernization skills and Claude plugin marketplace | `../skills` |
 
 Each repository has its own Git history and release path. The [plan](PLAN.md) names later tools and the evidence needed before creating them.
 
@@ -39,5 +40,15 @@ uv run --directory mcp --locked python checks/check_mcp.py
 - Have an improvement for an existing project? Open an issue in `ecosystem-issues` with a reproducible baseline and upstream status.
 - Know a package with a better alternative? Add evidence and migration caveats to `module-replacements`.
 - Want to inspect a project? Run the `cli` scanner. It can read the separate replacement manifest with `--replacements`.
+- Want dependency guidance in a coding agent? Use [skills](https://github.com/python-e18e/skills), modeled on [e18e/skills](https://github.com/e18e/skills), with a bundled replacement catalog and offline Python matcher.
+
+In Claude Code, install the marketplace and plugin:
+
+```text
+/plugin marketplace add python-e18e/skills
+/plugin install skills@python-e18e
+```
+
+The `module-replacements` skill reviews actual usage, Python floors, and compatibility before applying requested migrations. Its matcher requires Python 3.11+ and no additional dependencies.
 
 The [docs landing page](docs/index.html) is static HTML. No site generator or deployment is required for local review.

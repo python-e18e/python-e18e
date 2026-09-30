@@ -21,12 +21,16 @@ This order mirrors [e18e's repository history](https://github.com/e18e): `ecosys
 
 Both tools have separate source repositories and CI. MCP pins an immutable codemods Git commit so it installs independently. Validate volunteer pilots before PyPI releases; publish codemods before MCP and replace the Git dependency with the released package then. Follow [e18e's ongoing projects](https://e18e.dev/learn/projects) while reusing existing Python tooling. Ruff does not run third-party Flake8 plugins, so contribute missing rules upstream instead of cloning the JavaScript plugin architecture.
 
+## Agent skills
+
+8. **Skills.** Maintain the independent [skills repository](https://github.com/python-e18e/skills), following [e18e/skills](https://github.com/e18e/skills). Distribute a Claude Code marketplace with a Python dependency-replacement skill, an offline catalog snapshot with pinned provenance, and a standard-library matcher. Keep the separate replacement catalog as the source of truth. Skills review usage and compatibility and apply migrations within the user's requested scope; the codemods and MCP remain optional.
+
 ## Later work, when evidence supports it
 
-8. **CLI integration and configuration recipes.** Reuse the codemods package after pilots. For limited `setup.cfg` metadata conversion, supported Flake8 settings, and uv's documented import commands, require a real fixture, preview diff, idempotence check, and tests or built-artifact comparison. Keep unsupported settings in place.
-9. **framework-tracker / replacement viewer.** Add maintained views only after several projects have active issues and enough data to support them.
-10. **setup-publish / action-dependency-diff.** Separate release and CI helpers only after recurring work shows a stable use case.
-11. **performance automation.** Benchmark and automate PRs only after measurements, maintainer consent, and rollback checks are routine.
+9. **CLI integration and configuration recipes.** Reuse the codemods package after pilots. For limited `setup.cfg` metadata conversion, supported Flake8 settings, and uv's documented import commands, require a real fixture, preview diff, idempotence check, and tests or built-artifact comparison. Keep unsupported settings in place.
+10. **framework-tracker / replacement viewer.** Add maintained views only after several projects have active issues and enough data to support them.
+11. **setup-publish / action-dependency-diff.** Separate release and CI helpers only after recurring work shows a stable use case.
+12. **performance automation.** Benchmark and automate PRs only after measurements, maintainer consent, and rollback checks are routine.
 
 ## Migration safety contract
 
